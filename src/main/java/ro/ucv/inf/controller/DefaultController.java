@@ -1,25 +1,22 @@
 package ro.ucv.inf.controller;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import eu.bitwalker.useragentutils.UserAgent;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import eu.bitwalker.useragentutils.UserAgent;
+import org.springframework.web.bind.annotation.GetMapping;
 import ro.ucv.inf.model.RequestHeaderDto;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 @Controller
 public class DefaultController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public String redirectToDefault() {
 		return "redirect:/myinfo/";
 	}
@@ -28,8 +25,8 @@ public class DefaultController {
 	public String myinfoPost(HttpServletRequest request, Model model, Device device) {
 		
 	}*/
-	
-	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
+
+    @GetMapping(value = "/myinfo")
     public String myinfoGet(HttpServletRequest request, Model model, Device device) {
         Enumeration<String> enn = request.getHeaderNames();
         List<RequestHeaderDto> rhList = new ArrayList<RequestHeaderDto>();
