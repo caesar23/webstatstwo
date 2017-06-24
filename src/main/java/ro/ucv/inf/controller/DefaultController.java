@@ -29,7 +29,7 @@ public class DefaultController {
         while (enn.hasMoreElements()) {
             String name = enn.nextElement();
             String value = request.getHeader(name);
-            if (StringUtils.isEmpty(name) || StringUtils.isEmpty(value)) {
+            if (StringUtils.isBlank(name) || StringUtils.isBlank(value)) {
                 continue;
             }
             RequestHeaderDto rh = new RequestHeaderDto(name, value);
