@@ -20,16 +20,11 @@ public class DefaultController {
 	public String redirectToDefault() {
 		return "redirect:/myinfo/";
 	}
-	
-	/*@RequestMapping(value = "/myinfo", method = RequestMethod.POST)
-	public String myinfoPost(HttpServletRequest request, Model model, Device device) {
-		
-	}*/
 
     @GetMapping(value = "/myinfo")
     public String myinfoGet(HttpServletRequest request, Model model, Device device) {
         Enumeration<String> enn = request.getHeaderNames();
-        List<RequestHeaderDto> rhList = new ArrayList<RequestHeaderDto>();
+        List<RequestHeaderDto> rhList = new ArrayList<>();
 
         while (enn.hasMoreElements()) {
             String name = enn.nextElement();
