@@ -1,8 +1,9 @@
 package ro.ucv.inf.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ro.ucv.inf.model.GeoIpLocation;
 import ro.ucv.inf.service.GeoIpLocationService;
 
