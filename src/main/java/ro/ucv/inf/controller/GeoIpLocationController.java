@@ -1,22 +1,24 @@
 package ro.ucv.inf.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import ro.ucv.inf.model.GeoIpLocation;
 import ro.ucv.inf.service.GeoIpLocationService;
 
+import javax.inject.Inject;
+
 @Controller
 public class GeoIpLocationController {
 
-	@Autowired
 	private GeoIpLocationService geoIpLocationService;
 
-	@RequestMapping(value = "/geoIp", method = RequestMethod.POST)
+	@Inject
+	public GeoIpLocationController(GeoIpLocationService geoIpLocationService) {
+		this.geoIpLocationService = geoIpLocationService;
+	}
+
+	@PostMapping(value = "/geoIp")
 	@ResponseBody
 	public GeoIpLocation getLocation(@RequestParam(value = "ipAddress", required = true) String ipAddress)
 			throws Exception {
